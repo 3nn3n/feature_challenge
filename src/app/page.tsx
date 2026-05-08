@@ -1,10 +1,12 @@
+import BackgroundAnimation from "@/components/backgroundAnimation";
 import { tokens } from "@/tokens/colors";
 
 export default function Home() {
   return (
-    <h1>
-
-      Lets start
-    </h1>
+    <>
+      <div>
+        <BackgroundAnimation />
+      </div>
+    </>
   );
 }
