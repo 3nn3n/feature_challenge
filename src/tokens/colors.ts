@@ -7,6 +7,7 @@ export const tokens = {
     accentPrimary: "var(--color-accent-primary)",
     accentSuccess: "var(--color-accent-success)",
     accentError: "var(--color-accent-error)",
+    colorPath:"var(--color-path)",
   },
   spacing: {
     xs: "0.25rem",

@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import ClipPathTitle from "./pathTitle";
 import gsap from "gsap";
 import VideoPinSection from "./innerReveal";
+import { tokens } from "@/tokens/colors";
 
 const CloudContainers = () => {
   useGSAP(() => {
@@ -91,49 +92,72 @@ const CloudContainers = () => {
               borderColor={"#4F93FF"}
             />
           </div>
-          <div className="relative  h-[210px] w-full max-w-[1600px] px-4 pointer-events-none">
+          <div className="relative h-[340px] sm:h-[280px] xl:h-[210px] w-full max-w-[1600px] px-4 pointer-events-none">
+            {/* Mobile (1) */}
             <svg
-              className="absolute inset-0 h-full w-full"
+              className="absolute inset-0 h-full w-full sm:hidden"
+              viewBox="0 0 100 1000"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path className="benefit-connector-path" 
+              d="M50 40 V980" stroke={tokens.colors.colorPath} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path className="benefit-connector-path" 
+              d="M50 250 V980" stroke={tokens.colors.colorPath} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path className="benefit-connector-path" 
+              d="M50 460 V980" stroke={tokens.colors.colorPath} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path className="benefit-connector-path" 
+              d="M50 670 V980" stroke={tokens.colors.colorPath} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+
+            {/* Tablet (2) */}
+            <svg
+              className="absolute inset-0 hidden h-full w-full sm:block xl:hidden"
+              viewBox="0 0 1000 1000"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path 
+              className="benefit-connector-path" 
+              d="M250 40 V980" 
+              stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path 
+              className="benefit-connector-path" 
+              d="M750 40 V980" 
+              stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path 
+              className="benefit-connector-path" 
+              d="M250 470 V980" 
+              stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path 
+              className="benefit-connector-path" 
+              d="M750 470 V980" 
+              stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+
+            {/* Desktop (4 ) */}
+            <svg
+              className="absolute inset-0 hidden h-full w-full xl:block"
               viewBox="0 0 1600 900"
               fill="none"
               preserveAspectRatio="none"
             >
-              <path
-                className="benefit-connector-path"
-                d="M180 0 V860 "
-                stroke="#6ee7b7"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-              <path
-                className="benefit-connector-path"
-                d="M590 0 V860 "
-                stroke="#6ee7b7"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-              <path
-                className="benefit-connector-path"
-                d="M1010 0 V860 "
-                stroke="#6ee7b7"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-              <path
-                className="benefit-connector-path"
-                d="M1420 -100 V860 "
-                stroke="#6ee7b7"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
+              <path 
+              className="benefit-connector-path" 
+              d="M180 -40 V1260 " 
+              stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path 
+              className="benefit-connector-path" 
+              d="M590 -40 V860 " 
+              stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path 
+              className="benefit-connector-path" 
+              d="M1010 -40 V860 " 
+              stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path 
+              className="benefit-connector-path" 
+              d="M1420 -40 V860 " 
+              stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
           </div>
         </div>
