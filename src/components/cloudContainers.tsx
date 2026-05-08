@@ -92,9 +92,9 @@ const CloudContainers = () => {
               borderColor={"#4F93FF"}
             />
           </div>
-          <div className="relative h-[340px] sm:h-[280px] xl:h-[210px] w-full max-w-[1600px] px-4 pointer-events-none">
+          {/* <div className="relative h-[340px] sm:h-[280px] xl:h-[210px] w-full max-w-[1600px] px-4 pointer-events-none"> */}
             {/* Mobile (1) */}
-            <svg
+            {/* <svg
               className="absolute inset-0 h-full w-full sm:hidden"
               viewBox="0 0 100 1000"
               fill="none"
@@ -108,10 +108,10 @@ const CloudContainers = () => {
               d="M50 460 V980" stroke={tokens.colors.colorPath} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
               <path className="benefit-connector-path" 
               d="M50 670 V980" stroke={tokens.colors.colorPath} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
+            </svg> */}
 
             {/* Tablet (2) */}
-            <svg
+            {/* <svg
               className="absolute inset-0 hidden h-full w-full sm:block xl:hidden"
               viewBox="0 0 1000 1000"
               fill="none"
@@ -133,10 +133,10 @@ const CloudContainers = () => {
               className="benefit-connector-path" 
               d="M750 470 V980" 
               stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
+            </svg> */}
 
             {/* Desktop (4 ) */}
-            <svg
+            {/* <svg
               className="absolute inset-0 hidden h-full w-full xl:block"
               viewBox="0 0 1600 900"
               fill="none"
@@ -158,8 +158,8 @@ const CloudContainers = () => {
               className="benefit-connector-path" 
               d="M1420 -40 V860 " 
               stroke={tokens.colors.colorPath} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
-          </div>
+            </svg> */}
+          {/* </div> */}
         </div>
       </div>
 
