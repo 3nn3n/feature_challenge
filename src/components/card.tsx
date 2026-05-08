@@ -5,23 +5,28 @@ import { useCarts } from "../hooks/useCardAPI";
 import { useEffect } from "react";
 
 
-function AnimatedDiff({ min, max, delay = 0 }: { min: number; max: number; delay?: number }) {
+function AnimatedDiff({ min, max, delay = 0, isActive = false }: { min: number; max: number; delay?: number; isActive?: boolean }) {
   const diff = Math.max(0, max - min);
   const count = useMotionValue(0);
   const rounded = useTransform(() => Math.round(count.get()));
   useEffect(() => {
+    if (!isActive) {
+      count.set(0);
+      return;
+    }
+
     const controls = animate(count, diff, {
       duration: 5,
       delay,
       ease: "easeOut",
     });
     return () => controls.stop();
-  }, [count, diff, delay]);
+  }, [count, diff, delay, isActive]);
   return <motion.span>{rounded}</motion.span>;
 }
 
 
-export default function Card({ width, height }: { width?: number; height?: number } = {}) {
+export default function Card({ width, height, isActive = false }: { width?: number; height?: number; isActive?: boolean } = {}) {
   const { data, loading, error } = useCarts();
   
   console.log(data);
@@ -53,15 +58,18 @@ export default function Card({ width, height }: { width?: number; height?: numbe
               backgroundColor: "#ff4d00",
               borderRadius: "4px",
             }}
-            animate={{ height: [barConfig.min, barConfig.max ] }}
+            animate={{ height: isActive ? [barConfig.min, barConfig.max] : barConfig.min }}
             transition={{
               duration: 5,
               delay: i * 0.1,
               ease: "easeInOut"
             }}
           />
-          <span className="text-xs text-gray-700 text-align-center">
-            {barConfig.name} - <AnimatedDiff min={barConfig.min} max={barConfig.max} delay={i * 0.1} />
+          <span className="text-xs text-gray-700 text-align-center h-10">
+            {barConfig.name}
+          </span>
+          <span>
+          <AnimatedDiff min={barConfig.min} max={barConfig.max} delay={i * 0.1} isActive={isActive} />
           </span>
         </div>
       ))}

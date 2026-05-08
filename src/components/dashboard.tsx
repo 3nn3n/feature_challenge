@@ -1,12 +1,16 @@
 import React from 'react'
 import Card from './card'
-import { useState } from 'react';
 import Ticker from './ticker';
 import RecentActivityCard from './recentActivityCard';
 import ResourceDistribution from './resourceDistribution';
+import GlobalMap from './globalMap';
 
-const Dashboard = () => {
-  const [graphRunKey, setGraphRunKey] = useState(0);
+type DashboardProps = {
+  graphRunKey?: number;
+  isGraphActive?: boolean;
+};
+
+const Dashboard = ({ graphRunKey = 0, isGraphActive = false }: DashboardProps) => {
 
   return (
     <>
@@ -22,15 +26,19 @@ const Dashboard = () => {
 
         <div className='mt-6 flex flex-col lg:flex-row items-start m-4 gap-2'>
           <div>
-            <Card key={graphRunKey} />
+            <Card key={graphRunKey} isActive={isGraphActive} />
           </div>
           <div >
             <RecentActivityCard />
           </div>
         </div>
-
-        <div>
-          <ResourceDistribution />
+        <div className='flex items-center'>
+          <div>
+            <ResourceDistribution />
+          </div>
+          <div>
+            <GlobalMap />
+          </div>
         </div>
 
       </div>

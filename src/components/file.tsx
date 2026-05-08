@@ -3,6 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useMediaQuery } from "react-responsive";
+import Card from "./card";
 import { useState } from "react";
 import { useEffect } from "react";
 import Dashboard from "./dashboard";
@@ -14,7 +15,6 @@ const InnerReveal = () => {
   });
 
   const [graphRunKey, setGraphRunKey] = useState(0);
-  const [isGraphActive, setIsGraphActive] = useState(false);
   const [mounted, setMounted] = useState(false);
 useEffect(() => setMounted(true), []);
 const clip = !mounted
@@ -33,16 +33,8 @@ const clip = !mounted
           end: "200% top",
           scrub: 1.5,
           pin: true,
-          onEnter: () => {
-            setIsGraphActive(true);
-            setGraphRunKey((k) => k + 1);
-          },
-          onEnterBack: () => {
-            setIsGraphActive(true);
-            setGraphRunKey((k) => k + 1);
-          },
-          onLeave: () => setIsGraphActive(false),
-          onLeaveBack: () => setIsGraphActive(false),
+          onEnter: () => setGraphRunKey((k) => k + 1),
+          onEnterBack: () => setGraphRunKey((k) => k + 1),
         },
       });
 
@@ -61,7 +53,7 @@ const clip = !mounted
         }}
         className="size-full video-box"
       >
-        <Dashboard graphRunKey={graphRunKey} isGraphActive={isGraphActive} />
+        <Dashboard />
 
       </div>
     </section>
