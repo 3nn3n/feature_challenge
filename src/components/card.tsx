@@ -36,7 +36,7 @@ export default function Card({ width, height }: { width?: number; height?: numbe
   ];
 
   return (
-    <div style={{ width: width || "60vw", height: height || "50vh", backgroundColor: "#f0f0f0", borderRadius: 8, boxShadow: "0 2px 4px rgba(0,0,0,0.1)", display: "flex", alignItems: "flex-end", justifyContent: "center", gap: "12px", borderColor: "#2bfb33", borderWidth: 3, borderStyle: "solid", padding: "15px" }}>
+    <div style={{ width: width || "60vw", height: height || "40vh", backgroundColor: "#f0f0f0", borderRadius: 8, boxShadow: "0 2px 4px rgba(0,0,0,0.1)", display: "flex", alignItems: "flex-end", justifyContent: "center", gap: "12px", borderColor: "#2bfb33", borderWidth: 3, borderStyle: "solid", padding: "15px" }}>
       {barHeights.map((barConfig, i) => (
         <div
           key={i}

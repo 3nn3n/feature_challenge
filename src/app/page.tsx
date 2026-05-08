@@ -25,7 +25,7 @@ export default function Home() {
         <section className="relative min-h-screen bg-[#020617] overflow-hidden" suppressHydrationWarning>
           {/* background*/}
         
-          <div className="absolute inset-0 pointer-events-none">
+          {/* <div className="absolute inset-0 pointer-events-none">
             {[...Array(30)].map((_, i) => (
               <div
                 key={i}
@@ -37,7 +37,7 @@ export default function Home() {
                 }}
               />
             ))}
-          </div>
+          </div> */}
 
 
 

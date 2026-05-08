@@ -3,6 +3,7 @@ import Card from './card'
 import { useState } from 'react';
 import Ticker from './ticker';
 import RecentActivityCard from './recentActivityCard';
+import ResourceDistribution from './resourceDistribution';
 
 const Dashboard = () => {
   const [graphRunKey, setGraphRunKey] = useState(0);
@@ -19,13 +20,17 @@ const Dashboard = () => {
           <div><Ticker /></div>
         </div>
 
-        <div className='mt-6 flex flex-col lg:flex-row items-start justify-between m-4 gap-4'>
+        <div className='mt-6 flex flex-col lg:flex-row items-start m-4 gap-2'>
           <div>
             <Card key={graphRunKey} />
           </div>
-          <div className='bg-pink-500'>
+          <div >
             <RecentActivityCard />
           </div>
+        </div>
+
+        <div>
+          <ResourceDistribution />
         </div>
 
       </div>
