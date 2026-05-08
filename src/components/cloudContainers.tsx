@@ -42,7 +42,20 @@ const CloudContainers = () => {
         clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
         ease: "circ.out",
       });
+
+      gsap.from(".benefit-connector-path", {
+        strokeDasharray: 20,
+        strokeDashoffset: 10,
+  
+        scrollTrigger: {
+          trigger: ".benefit-section",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1.5,
+        },
+      });
   });
+
 
   return (
     <section className="benefit-section">
@@ -78,8 +91,51 @@ const CloudContainers = () => {
               borderColor={"#4F93FF"}
             />
           </div>
-
-
+          <div className="relative  h-[210px] w-full max-w-[1600px] px-4 pointer-events-none">
+            <svg
+              className="absolute inset-0 h-full w-full"
+              viewBox="0 0 1600 900"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                className="benefit-connector-path"
+                d="M180 0 V860 "
+                stroke="#6ee7b7"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              <path
+                className="benefit-connector-path"
+                d="M590 0 V860 "
+                stroke="#6ee7b7"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              <path
+                className="benefit-connector-path"
+                d="M1010 0 V860 "
+                stroke="#6ee7b7"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              <path
+                className="benefit-connector-path"
+                d="M1420 -100 V860 "
+                stroke="#6ee7b7"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </svg>
+          </div>
         </div>
       </div>
 
