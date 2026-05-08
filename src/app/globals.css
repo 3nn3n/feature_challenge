@@ -74,37 +74,7 @@ body::-webkit-scrollbar {
     @apply text-nowrap overflow-hidden;
   }
 
-  .hero-container {
-    @apply relative bg-(--color-surface-base) w-screen h-dvh overflow-hidden;
-
-    .hero-content {
-      @apply relative z-10 w-full h-full flex flex-col 2xl:justify-center items-center translate-y-10 2xl:pt-0 md:pt-32 pt-24;
-
-      .hero-title {
-        @apply text-(--color-text-primary) 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold uppercase leading-[9vw] tracking-[-.35vw] 2xl:mb-0 mb-5;
-      }
-
-      .hero-text-scroll {
-        @apply rotate-[-3deg] mb-8 border-[.5vw] border-(--color-border-soft);
-
-        .hero-subtitle {
-          @apply bg-(--color-surface-card);
-        }
-
-        h1 {
-          @apply uppercase 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold text-(--color-text-primary) leading-[9vw] tracking-[-.35vw] 2xl:px-[1.2vw] px-3 2xl:pb-[1vw] pb-5 2xl:py-0 py-3;
-        }
-      }
-
-      h2 {
-        @apply font-paragraph text-(--color-text-secondary) text-center md:max-w-lg max-w-sm px-5 md:text-lg leading-[115%] mt-3;
-      }
-
-      .hero-button {
-        @apply md:mt-16 mt-10 text-(--color-text-inverse) bg-(--color-accent-primary) uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-10;
-      }
-    }
-  }
+  
 
   .benefit-section {
     @apply min-h-dvh overflow-hidden relative;
@@ -112,9 +82,6 @@ body::-webkit-scrollbar {
     p {
       @apply text-(--color-text-primary) font-paragraph text-center text-lg;
     }
-
-    
-
 
     .vd-pin-section {
       @apply md:h-[110vh] h-dvh overflow-hidden md:!-translate-y-[15%] md:mt-0 mt-20;
