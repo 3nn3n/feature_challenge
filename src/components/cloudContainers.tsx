@@ -4,7 +4,6 @@ import { useGSAP } from "@gsap/react";
 import ClipPathTitle from "./pathTitle";
 import gsap from "gsap";
 import VideoPinSection from "./innerReveal";
-import { tokens } from "@/tokens/colors";
 
 const CloudContainers = () => {
   useGSAP(() => {
@@ -49,48 +48,45 @@ const CloudContainers = () => {
     <section className="benefit-section">
       <div className="container mx-auto pt-20">
         <div className="col-center">
-          
-
-          <div className="mt-20 col-center">
+          <div className="mt-20 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4 xl:gap-8 items-center justify-items-center">
             <ClipPathTitle
               title={"AWS"}
-              color={tokens.colors.textPrimary}
-              bg={tokens.colors.bgSecondary}
+              color={"#E8F2FF"}
+              bg={"radial-gradient(circle at 50% 0%, rgba(45,102,196,0.35), rgba(10,20,65,0.95) 62%)"}
               className={"first-title"}
-              borderColor={"#222123"}
+              borderColor={"#4F93FF"}
             />
             <ClipPathTitle
               title={"GCP"}
-              color={tokens.colors.textPrimary}
-              bg={tokens.colors.bgSecondary}
-              className={"second-title"}
-              borderColor={"#222123"}
+              color={"#E8F2FF"}
+              bg={"radial-gradient(circle at 50% 0%, rgba(45,102,196,0.35), rgba(10,20,65,0.95) 62%)"}
+              className={"second-title translate-y-0! rotate-0!"}
+              borderColor={"#4F93FF"}
             />
             <ClipPathTitle
               title={"AZURE"}
-              color={tokens.colors.textPrimary}
-              bg={tokens.colors.bgSecondary}
+              color={"#E8F2FF"}
+              bg={"radial-gradient(circle at 50% 0%, rgba(45,102,196,0.35), rgba(10,20,65,0.95) 62%)"}
               className={"third-title"}
-              borderColor={"#222123"}
+              borderColor={"#4F93FF"}
             />
             <ClipPathTitle
               title={"ORACLE"}
-              color={tokens.colors.textPrimary}
-              bg={tokens.colors.bgSecondary}
+              color={"#E8F2FF"}
+              bg={"radial-gradient(circle at 50% 0%, rgba(45,102,196,0.35), rgba(10,20,65,0.95) 62%)"}
               className={"fourth-title"}
-              borderColor={"#222123"}
+              borderColor={"#4F93FF"}
             />
           </div>
 
-          <div className="md:mt-0 mt-10">
-            <p>And much more ...</p>
-          </div>
+
         </div>
       </div>
-      <div className="relative overlay-box">
+
+      <div className="relative overlay-box mt-30">
         <VideoPinSection />
       </div>
-      
+
     </section>
   );
 };
