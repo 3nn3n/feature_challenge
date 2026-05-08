@@ -1,16 +1,20 @@
 import React from 'react'
+import { useCarts } from '@/hooks/useCardAPI';
 
 const ActivityComponent = () => {
+  const { data, loading, error } = useCarts();
+  console.log(data);
+
   return (
-    <div className='flex items-center w-[32vw] h-[6vh] m-1 justify-between p-4 bg-blue-500'>
+    <div className='mt-2 flex min-h-[52px] w-full items-center justify-between rounded-xl border border-(--color-border-primary)/30 bg-(--color-surface-card)/70 px-3 py-2 sm:px-4'>
       <div className='flex items-center justify-start gap-4'>
-        <div>AWSIMAGE</div>
-        <div className='text-sm'>
+        <div className='text-[10px] sm:text-xs text-(--color-text-secondary)'>AWS</div>
+        <div className='text-xs sm:text-sm text-(--color-text-primary)'>
           <div>Virtual Machine</div>
           <div>US East 1 </div>
         </div>
       </div>
-      <div>Success</div>
+      <div className='text-xs sm:text-sm text-emerald-300'>Success</div>
     </div>
   )
 }

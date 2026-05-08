@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const GlobalMap = () => {
   return (
-    <div className='bg-green-500 w-[34vw] h-[42vh] items-center justify-center rounded-3xl p-6'>
+    <div className='w-full min-h-[260px] sm:min-h-[270px] rounded-2xl border border-(--color-border-primary)/60 bg-(--gradient-panel)'>
       <Image
         src="/globalinfra.png"
         alt="Global infrastructure map"

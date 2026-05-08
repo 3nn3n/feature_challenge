@@ -16,12 +16,12 @@ const InnerReveal = () => {
   const [graphRunKey, setGraphRunKey] = useState(0);
   const [isGraphActive, setIsGraphActive] = useState(false);
   const [mounted, setMounted] = useState(false);
-useEffect(() => setMounted(true), []);
-const clip = !mounted
-  ? "circle(6% at 50% 50%)" // same on server + first client paint
-  : isMobile
-    ? "circle(100% at 50% 50%)"
-    : "circle(6% at 50% 50%)";
+  useEffect(() => setMounted(true), []);
+  const clip = !mounted
+    ? "circle(6% at 50% 50%)" // same on server + first client paint
+    : isMobile
+      ? "circle(100% at 50% 50%)"
+      : "circle(6% at 50% 50%)";
 
 
   useGSAP(() => {
@@ -63,6 +63,15 @@ const clip = !mounted
       >
         <Dashboard graphRunKey={graphRunKey} isGraphActive={isGraphActive} />
 
+        <div className="abs-center md:scale-100 scale-200">
+          <div className="play-btn">
+            <img
+              src="./play.svg"
+              alt=""
+              className="size-[3vw] ml-[.5vw]"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

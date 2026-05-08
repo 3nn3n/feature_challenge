@@ -3,30 +3,36 @@
 
 
 @theme {
-  --color-black: #222123;
-  --color-main-bg: #F7B980;
-  --color-white: #ffffff;
-  --color-dark-brown: #523122;
-  --color-mid-brown: #a26833;
-  --color-light-brown: #e3a458;
-  --color-red-brown: #7f3b2d;
-  --color-yellow-brown: #a26833;
-  --color-milk-yellow: #e3d3bc;
-  --color-red: #a02128;
-  --color-milk: #5DF8D8;
-  --color-path: #ff4d00;
   --font-sans: "Poppins", sans-serif;
   --font-paragraph: "Poppins, sans-serif";
 }
 
 :root {
-  --color-bg-primary: var(--color-milk);
-  --color-bg-secondary: var(--color-main-bg);
-  --color-text-primary: var(--color-dark-brown);
-  --color-text-inverse: var(--color-milk);
-  --color-accent-primary: var(--color-light-brown);
+  --color-surface-base: #020617;
+  --color-surface-panel: #071331;
+  --color-surface-card: #0a1d4d;
+  --color-surface-overlay: #0b1f3d;
+  --color-border-primary: #4f93ff;
+  --color-border-soft: #bfd8ff;
+  --color-text-primary: #e8f2ff;
+  --color-text-secondary: #bfd8ff;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0a1d4d;
+  --color-accent-primary: #6ee7b7;
   --color-accent-success: #1f8a4c;
   --color-accent-error: #d93f3f;
+  --color-path: #ff4d00;
+  --color-chart-bar: #ff9626;
+  --color-provider-aws: #9e8561;
+  --color-provider-azure: #4d6377;
+  --color-provider-gcp: #638266;
+  --color-provider-oracle: #775d5b;
+  --color-provider-ibm: #7f6797;
+  --gradient-panel: radial-gradient(circle at 50% 0%, rgba(45, 102, 196, 0.28), rgba(10, 20, 65, 0.94) 62%);
+  --gradient-panel-soft: radial-gradient(circle at 50% 0%, rgba(45, 102, 196, 0.2), rgba(10, 20, 65, 0.9) 62%);
+  --shadow-inset-glow: inset 0 0 18px rgba(16, 66, 163, 0.35);
+  --color-bg-primary: var(--color-surface-base);
+  --color-bg-secondary: var(--color-surface-panel);
 }
 
 html,
@@ -69,33 +75,33 @@ body::-webkit-scrollbar {
   }
 
   .hero-container {
-    @apply relative bg-milk w-screen h-dvh overflow-hidden;
+    @apply relative bg-(--color-surface-base) w-screen h-dvh overflow-hidden;
 
     .hero-content {
       @apply relative z-10 w-full h-full flex flex-col 2xl:justify-center items-center translate-y-10 2xl:pt-0 md:pt-32 pt-24;
 
       .hero-title {
-        @apply text-dark-brown 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold uppercase leading-[9vw] tracking-[-.35vw] 2xl:mb-0 mb-5;
+        @apply text-(--color-text-primary) 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold uppercase leading-[9vw] tracking-[-.35vw] 2xl:mb-0 mb-5;
       }
 
       .hero-text-scroll {
-        @apply rotate-[-3deg] mb-8 border-[.5vw] border-milk;
+        @apply rotate-[-3deg] mb-8 border-[.5vw] border-(--color-border-soft);
 
         .hero-subtitle {
-          @apply bg-mid-brown;
+          @apply bg-(--color-surface-card);
         }
 
         h1 {
-          @apply uppercase 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold text-[#fce1cd] leading-[9vw] tracking-[-.35vw] 2xl:px-[1.2vw] px-3 2xl:pb-[1vw] pb-5 2xl:py-0 py-3;
+          @apply uppercase 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold text-(--color-text-primary) leading-[9vw] tracking-[-.35vw] 2xl:px-[1.2vw] px-3 2xl:pb-[1vw] pb-5 2xl:py-0 py-3;
         }
       }
 
       h2 {
-        @apply font-paragraph text-dark-brown text-center md:max-w-lg max-w-sm px-5 md:text-lg leading-[115%] mt-3;
+        @apply font-paragraph text-(--color-text-secondary) text-center md:max-w-lg max-w-sm px-5 md:text-lg leading-[115%] mt-3;
       }
 
       .hero-button {
-        @apply md:mt-16 mt-10 text-dark-brown bg-light-brown uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-10;
+        @apply md:mt-16 mt-10 text-(--color-text-inverse) bg-(--color-accent-primary) uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-10;
       }
     }
   }
@@ -104,7 +110,7 @@ body::-webkit-scrollbar {
     @apply min-h-dvh overflow-hidden relative;
 
     p {
-      @apply text-milk font-paragraph text-center text-lg;
+      @apply text-(--color-text-primary) font-paragraph text-center text-lg;
     }
 
     
@@ -118,7 +124,7 @@ body::-webkit-scrollbar {
       }
 
       .play-btn {
-        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[9vw] flex justify-center items-center bg-[#ffffff1a] backdrop-blur-xl rounded-full;
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[9vw] flex justify-center items-center bg-white/10 backdrop-blur-xl rounded-full;
       }
 
       img:first-of-type {

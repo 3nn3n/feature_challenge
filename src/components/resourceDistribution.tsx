@@ -63,7 +63,7 @@ export default function ResourceDistributionTable() {
   const [activeTab, setActiveTab] = useState("service");
 
   return (
-    <div className="mx-3 w-[60vw] max-w-4xl rounded-3xl border border-white/10 bg-[#d375d8] p-6 text-white shadow-2xl">
+    <div className="w-full min-w-[720px] rounded-2xl border border-(--color-border-primary)/60 bg-(--gradient-panel) p-4 sm:p-4 text-(--color-text-primary) shadow-2xl">
       {/* Header */}
       <div className=" flex items-center justify-between">
         <h2 className="text-md font-semibold tracking-tight">
@@ -71,12 +71,12 @@ export default function ResourceDistributionTable() {
         </h2>
 
         {/* Tabs */}
-        <div className="flex rounded-md border border-white/10 bg-[#0b1f3d]">
+        <div className="mb-2 flex rounded-xl border border-white/10 bg-(--color-surface-overlay)">
           <button
             onClick={() => setActiveTab("service")}
             className={`rounded-xl px-5 text-sm transition-all ${
               activeTab === "service"
-                ? "bg-[#17345f] text-white"
+                ? "bg-(--color-surface-card) text-white"
                 : "text-white/60 hover:text-white"
             }`}
           >
@@ -87,7 +87,7 @@ export default function ResourceDistributionTable() {
             onClick={() => setActiveTab("region")}
             className={`rounded-xl px-5 text-sm transition-all ${
               activeTab === "region"
-                ? "bg-[#17345f] text-white"
+                ? "bg-(--color-surface-card) text-white"
                 : "text-white/60 hover:text-white"
             }`}
           >
@@ -99,21 +99,21 @@ export default function ResourceDistributionTable() {
       {/* Table */}
       <div className="overflow-hidden rounded-2xl border border-white/5">
         <table className="w-full border-collapse">
-          <thead className="bg-white/[0.02]">
+          <thead className="bg-white/2">
             <tr className="border-b border-white/10 text-left text-sm">
               <th className="px-5 font-small text-white/60">Service</th>
 
-              <th className="px-5 py-4 font-small text-[#9e8561]">AWS</th>
+              <th className="px-5 py-4 font-small text-(--color-provider-aws)">AWS</th>
 
-              <th className="px-5 py-4 font-small text-[#4d6377]">Azure</th>
+              <th className="px-5 py-4 font-small text-(--color-provider-azure)">Azure</th>
 
-              <th className="px-5 py-4 font-small text-[#638266]">GCP</th>
+              <th className="px-5 py-4 font-small text-(--color-provider-gcp)">GCP</th>
 
-              <th className="px-5 py-4 font-small text-[#775d5b]">
+              <th className="px-5 py-4 font-small text-(--color-provider-oracle)">
                 Oracle
               </th>
 
-              <th className="px-5 py-4 font-small text-[#7f6797]">IBM</th>
+              <th className="px-5 py-4 font-small text-(--color-provider-ibm)">IBM</th>
 
               <th className="px-5 py-4 font-small text-right text-white/60">
                 Total
@@ -125,7 +125,7 @@ export default function ResourceDistributionTable() {
             {services.map((service, index) => (
               <tr
                 key={index}
-                className="border-b border-white/5 transition-colors hover:bg-white/[0.03]"
+                className="border-b border-white/5 transition-colors hover:bg-white/3"
               >
                 <td className="px-5 text-white/80">{service.name}</td>
 

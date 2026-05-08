@@ -3,6 +3,7 @@
 import { animate, motion, useMotionValue, useTransform } from "motion/react";
 import { useCarts } from "../hooks/useCardAPI";
 import { useEffect } from "react";
+import { tokens } from "@/tokens/colors";
 
 
 function AnimatedDiff({ min, max, delay = 0, isActive = false }: { min: number; max: number; delay?: number; isActive?: boolean }) {
@@ -28,8 +29,7 @@ function AnimatedDiff({ min, max, delay = 0, isActive = false }: { min: number; 
 
 export default function Card({ width, height, isActive = false }: { width?: number; height?: number; isActive?: boolean } = {}) {
   const { data, loading, error } = useCarts();
-  
-  console.log(data);
+
   // Define different heights and names for each bar
   const barHeights = [
     { min: data?.carts[0].products[0].price ?? 10, max: data?.carts[0].products[0].total ?? 100, name: data?.carts[0].products[0].title ?? "CPU" },
@@ -41,7 +41,7 @@ export default function Card({ width, height, isActive = false }: { width?: numb
   ];
 
   return (
-    <div style={{ width: width || "60vw", height: height || "40vh", backgroundColor: "#f0f0f0", borderRadius: 8, boxShadow: "0 2px 4px rgba(0,0,0,0.1)", display: "flex", alignItems: "flex-end", justifyContent: "center", gap: "12px", borderColor: "#2bfb33", borderWidth: 3, borderStyle: "solid", padding: "15px" }}>
+    <div style={{ width: width || "100%", minWidth: "720px", height: height || "40vh", background: tokens.colors.gradientPanel, borderRadius: 16, boxShadow: tokens.colors.shadowInsetGlow, display: "flex", alignItems: "flex-end", justifyContent: "center", gap: "12px", borderColor: tokens.colors.borderPrimary, borderWidth: 1, borderStyle: "solid", padding: "1px" }}>
       {barHeights.map((barConfig, i) => (
         <div
           key={i}
@@ -54,8 +54,8 @@ export default function Card({ width, height, isActive = false }: { width?: numb
         >
           <motion.div
             style={{
-              width: "100px",
-              backgroundColor: "#ff4d00",
+              width: "84px",
+              backgroundColor: tokens.colors.chartBar,
               borderRadius: "4px",
             }}
             animate={{ height: isActive ? [barConfig.min, barConfig.max] : barConfig.min }}
@@ -65,10 +65,10 @@ export default function Card({ width, height, isActive = false }: { width?: numb
               ease: "easeInOut"
             }}
           />
-          <span className="text-xs text-gray-700 text-align-center h-10">
+          <span className="text-xs text-(--color-text-primary) text-align-center h-6">
             {barConfig.name}
           </span>
-          <span>
+          <span className="text-sm text-(--color-text-secondary) mb-2">
           <AnimatedDiff min={barConfig.min} max={barConfig.max} delay={i * 0.1} isActive={isActive} />
           </span>
         </div>

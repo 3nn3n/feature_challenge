@@ -2,7 +2,6 @@
 
 import CloudContainers from "@/components/cloudContainers";
 import Navbar from "@/components/navBar";
-import { tokens } from "@/tokens/colors";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollSmoother, ScrollTrigger } from 'gsap/all'
@@ -22,7 +21,7 @@ export default function Home() {
     <main>
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <section className="relative min-h-screen bg-[#020617] overflow-hidden" suppressHydrationWarning>
+        <section className="relative min-h-screen bg-(--color-surface-base) overflow-hidden" suppressHydrationWarning>
           {/* background*/}
         
           {/* <div className="absolute inset-0 pointer-events-none">
