@@ -63,15 +63,17 @@ const InnerReveal = () => {
       >
         <Dashboard graphRunKey={graphRunKey} isGraphActive={isGraphActive} />
 
-        <div className="abs-center md:scale-100 scale-200">
-          <div className="play-btn">
-            <img
-              src="./play.svg"
-              alt=""
-              className="size-[3vw] ml-[.5vw]"
-            />
+        {!isGraphActive && (
+          <div className="abs-center md:scale-100 scale-200">
+            <div className="play-btn">
+              <img
+                src="./play.svg"
+                alt=""
+                className="size-[3vw] ml-[.5vw]"
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
