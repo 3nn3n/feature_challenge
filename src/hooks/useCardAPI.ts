@@ -11,6 +11,8 @@ type Cart = {
     discountPercentage: number;
     discountedPrice: number;
   }[];
+  totalProducts: number;
+  totalQuantity: number;
 };
 type CartsResponse = {
   carts: Cart[];
