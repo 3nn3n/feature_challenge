@@ -120,11 +120,11 @@
   }
 
   .dashboard-section {
-    @apply grid grid-cols-1 xl:grid-cols-12 gap-3 sm:gap-4 items-start;
+    @apply grid grid-cols-1 xl:grid-cols-12 gap-3 sm:gap-4;
   }
 
   .dashboard-section--top {
-    @apply mt-4 sm:mt-6;
+    @apply mt-4 sm:mt-6 items-start;
   }
 
   .dashboard-section--bottom {
@@ -141,6 +141,11 @@
 
   .dashboard-col-narrow {
     @apply xl:col-span-4 w-full;
+  }
+
+  /* Map column: stretch with the tall resource row so the image can fill full height */
+  .dashboard-col-narrow--fill {
+    @apply flex min-h-0 flex-col xl:h-full;
   }
 
   .ticker-card {
@@ -217,8 +222,13 @@
     @apply text-xs sm:text-sm text-emerald-300;
   }
 
+  /* Relative box + fill image: map covers the entire panel edge-to-edge */
+  .global-map {
+    @apply relative isolate min-h-[260px] w-full flex-1 overflow-hidden rounded-2xl border border-(--color-border-primary)/60 bg-(--gradient-panel) sm:min-h-[270px];
+  }
+
   .global-map__image {
-    @apply w-full h-full object-cover rounded-2xl;
+    @apply object-cover object-center;
   }
 
   .resource-distribution {

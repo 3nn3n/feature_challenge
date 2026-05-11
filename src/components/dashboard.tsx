@@ -75,7 +75,7 @@ const Dashboard = ({ graphRunKey = 0, isGraphActive = false }: DashboardProps) =
           <div className="dashboard-col-wide">
             <ResourceDistribution />
           </div>
-          <div className="dashboard-col-narrow">
+          <div className="dashboard-col-narrow dashboard-col-narrow--fill">
             <GlobalMap />
           </div>
         </div>
