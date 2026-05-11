@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useGSAP } from "@gsap/react";
 import ClipPathTitle from "./pathTitle";
@@ -51,16 +51,13 @@ const CloudContainers = () => {
         clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
         ease: "circ.out",
       });
-
-
   });
-
 
   return (
     <section className="benefit-section">
-      <div className="container mx-auto pt-20">
+      <div className="benefit-section__container">
         <div className="col-center">
-          <div className="relative z-10 mt-20 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4 xl:gap-8 items-center justify-items-center">
+          <div className="benefit-section__title-grid">
             <ClipPathTitle
               title={"AWS"}
               color={tokens.colors.textPrimary}
@@ -72,7 +69,7 @@ const CloudContainers = () => {
               title={"GCP"}
               color={tokens.colors.textPrimary}
               bg={tokens.colors.gradientPanel}
-              className={"second-title translate-y-0! rotate-0!"}
+              className={"second-title"}
               borderColor={tokens.colors.borderPrimary}
             />
             <ClipPathTitle
@@ -91,15 +88,14 @@ const CloudContainers = () => {
             />
           </div>
           <div>
-            <hr className="text-orange-500 w-250 -mt-5 animate-pulse" />
+            <hr className="benefit-section__divider" />
           </div>
         </div>
       </div>
 
-      <div className="relative overlay-box mt-30">
+      <div className="overlay-box">
         <VideoPinSection />
       </div>
-
     </section>
   );
 };

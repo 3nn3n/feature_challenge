@@ -12,8 +12,6 @@ type ServiceRow = {
   ibm: number | undefined;
 };
 
-
-
 export default function ResourceDistributionTable() {
   const [activeTab, setActiveTab] = useState("service");
 
@@ -74,59 +72,54 @@ export default function ResourceDistributionTable() {
   ];
 
   return (
-    <div className="w-full min-w-[720px] rounded-2xl border border-(--color-border-primary)/60 bg-(--gradient-panel) p-4 sm:p-4 text-(--color-text-primary) shadow-2xl">
-      {/* Header */}
-      <div className=" flex items-center justify-between">
-        <h2 className="text-md font-semibold tracking-tight">
-          Resource Distribution
-        </h2>
+    <div className="resource-distribution">
+      <div className="resource-distribution__header">
+        <h2 className="resource-distribution__title">Resource Distribution</h2>
 
-        {/* Tabs */}
-        <div className="mb-2 flex rounded-xl border border-white/10 bg-(--color-surface-overlay)">
+        <div className="resource-distribution__tabs">
           <button
+            type="button"
             onClick={() => setActiveTab("service")}
-            className={`rounded-xl px-5 text-sm transition-all ${activeTab === "service"
-                ? "bg-(--color-surface-card) text-white"
-                : "text-white/60 hover:text-white"
-              }`}
+            className={
+              activeTab === "service"
+                ? "resource-distribution__tab resource-distribution__tab--active"
+                : "resource-distribution__tab resource-distribution__tab--inactive"
+            }
           >
             By Service
           </button>
 
           <button
+            type="button"
             onClick={() => setActiveTab("region")}
-            className={`rounded-xl px-5 text-sm transition-all ${activeTab === "region"
-                ? "bg-(--color-surface-card) text-white"
-                : "text-white/60 hover:text-white"
-              }`}
+            className={
+              activeTab === "region"
+                ? "resource-distribution__tab resource-distribution__tab--active"
+                : "resource-distribution__tab resource-distribution__tab--inactive"
+            }
           >
             By Region
           </button>
         </div>
       </div>
 
-      {/* Table */}
-      <div className="overflow-hidden rounded-2xl border border-white/5">
-        <table className="w-full border-collapse">
-          <thead className="bg-white/2">
-            <tr className="border-b border-white/10 text-left text-sm">
-              <th className="px-5 font-small text-white/60">Service</th>
+      <div className="resource-distribution__table-wrap">
+        <table className="resource-distribution__table">
+          <thead className="resource-distribution__thead">
+            <tr className="resource-distribution__head-row">
+              <th className="resource-distribution__th--service">Service</th>
 
-              <th className="px-5 py-4 font-small text-(--color-provider-aws)">AWS</th>
+              <th className="resource-distribution__th--aws">AWS</th>
 
-              <th className="px-5 py-4 font-small text-(--color-provider-azure)">Azure</th>
+              <th className="resource-distribution__th--azure">Azure</th>
 
-              <th className="px-5 py-4 font-small text-(--color-provider-gcp)">GCP</th>
+              <th className="resource-distribution__th--gcp">GCP</th>
 
-              <th className="px-5 py-4 font-small text-(--color-provider-oracle)">
-                Oracle
-              </th>
+              <th className="resource-distribution__th--oracle">Oracle</th>
 
-              <th className="px-5 py-4 font-small text-(--color-provider-ibm)">IBM</th>
+              <th className="resource-distribution__th--ibm">IBM</th>
 
-              <th className="px-5 py-4 font-small text-right text-white/60">
-                Total
-              </th>
+              <th className="resource-distribution__th--total">Total</th>
             </tr>
           </thead>
 
@@ -142,14 +135,14 @@ export default function ResourceDistributionTable() {
                 asNum(service.ibm);
 
               return (
-                <tr key={index} className="border-b border-white/5 transition-colors hover:bg-white/3">
-                  <td className="px-5 text-white/80">{service.name}</td>
-                  <td className="px-5">{service.aws}</td>
-                  <td className="px-5">{service.azure}</td>
-                  <td className="px-5">{service.gcp}</td>
-                  <td className="px-5">{service.oracle}</td>
-                  <td className="px-5">{service.ibm}</td>
-                  <td className="px-5 text-right font-small">{rowTotal}</td>
+                <tr key={index} className="resource-distribution__row">
+                  <td className="resource-distribution__td--name">{service.name}</td>
+                  <td className="resource-distribution__td">{service.aws}</td>
+                  <td className="resource-distribution__td">{service.azure}</td>
+                  <td className="resource-distribution__td">{service.gcp}</td>
+                  <td className="resource-distribution__td">{service.oracle}</td>
+                  <td className="resource-distribution__td">{service.ibm}</td>
+                  <td className="resource-distribution__td--total">{rowTotal}</td>
                 </tr>
               );
             })}

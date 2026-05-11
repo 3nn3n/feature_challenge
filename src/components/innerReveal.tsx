@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -6,7 +6,6 @@ import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 import { useEffect } from "react";
 import Dashboard from "./dashboard";
-
 
 const InnerReveal = () => {
   const isMobile = useMediaQuery({
@@ -18,11 +17,10 @@ const InnerReveal = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const clip = !mounted
-    ? "circle(6% at 50% 50%)" // same on server + first client paint
+    ? "circle(6% at 50% 50%)"
     : isMobile
       ? "circle(100% at 50% 50%)"
       : "circle(6% at 50% 50%)";
-
 
   useGSAP(() => {
     if (!isMobile) {
@@ -59,18 +57,14 @@ const InnerReveal = () => {
         style={{
           clipPath: clip,
         }}
-        className="size-full video-box"
+        className="video-box"
       >
         <Dashboard graphRunKey={graphRunKey} isGraphActive={isGraphActive} />
 
         {!isGraphActive && (
-          <div className="abs-center md:scale-100 scale-200">
+          <div className="vd-pin-play-overlay">
             <div className="play-btn">
-              <img
-                src="./play.svg"
-                alt=""
-                className="size-[3vw] ml-[.5vw]"
-              />
+              <img src="./play.svg" alt="" className="vd-pin-play-icon" />
             </div>
           </div>
         )}

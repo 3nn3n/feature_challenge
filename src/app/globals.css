@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
-
 @theme {
   --font-sans: "Poppins", sans-serif;
   --font-paragraph: "Poppins, sans-serif";
@@ -35,46 +34,280 @@
   --color-bg-secondary: var(--color-surface-panel);
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+@layer base {
+  html,
+  body {
+    @apply m-0 p-0 box-border overflow-x-hidden scroll-smooth font-sans;
+    @apply bg-(--color-bg-primary) text-(--color-text-primary);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  body {
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
 }
 
-body::-webkit-scrollbar {
-  display: none; 
-}
+@layer components {
+  .layout-html {
+    @apply h-full antialiased;
+  }
 
-@layer utilities {
+  .layout-body {
+    @apply min-h-full flex flex-col;
+  }
+
   .flex-center {
     @apply flex justify-center items-center;
   }
+
   .col-center {
     @apply flex flex-col justify-center items-center;
   }
+
   .abs-center {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
+
   .general-title {
     @apply 2xl:text-[8.5rem] md:text-8xl text-5xl font-bold uppercase leading-[9vw] tracking-[-.35vw];
   }
-}
 
-
-@layer components {
   .paragraph-line {
     @apply text-nowrap overflow-hidden;
   }
 
-  
+  .home-hero {
+    @apply relative min-h-screen bg-(--color-surface-base) overflow-hidden;
+  }
+
+  .home-hero__foreground {
+    @apply relative z-10;
+  }
+
+  .navbar {
+    @apply fixed top-0 left-0 z-50 md:p-9 p-3;
+  }
+
+  .navbar__logo {
+    @apply md:w-16 w-12;
+  }
+
+  .path-title-root {
+    @apply flex justify-center;
+  }
+
+  .path-title-shell {
+    @apply w-[130px] sm:w-[140px] md:w-[150px] h-[32px] sm:h-[36px] md:h-[42px] rounded-[18px] border border-(--color-border-primary) flex items-center justify-center px-3 sm:px-4;
+  }
+
+  .path-title-heading {
+    @apply text-sm sm:text-base md:text-lg font-semibold tracking-[0.08em] uppercase;
+  }
+
+  .second-title {
+    @apply translate-y-0! rotate-0!;
+  }
+
+  .dashboard-root {
+    @apply w-screen min-h-screen bg-(--color-surface-panel) py-4 sm:py-6 lg:py-8 px-3 sm:px-4 lg:px-6 text-(--color-text-primary);
+  }
+
+  .dashboard-tickers {
+    @apply flex flex-wrap items-center justify-center gap-3;
+  }
+
+  .dashboard-section {
+    @apply grid grid-cols-1 xl:grid-cols-12 gap-3 sm:gap-4 items-start;
+  }
+
+  .dashboard-section--top {
+    @apply mt-4 sm:mt-6;
+  }
+
+  .dashboard-section--bottom {
+    @apply mt-3 sm:mt-4;
+  }
+
+  .dashboard-col-wide {
+    @apply xl:col-span-8 w-full overflow-x-auto;
+  }
+
+  .dashboard-col-wide--panel {
+    @apply rounded-2xl border border-(--color-border-primary)/50 bg-(--gradient-panel-soft);
+  }
+
+  .dashboard-col-narrow {
+    @apply xl:col-span-4 w-full;
+  }
+
+  .ticker-card {
+    @apply flex min-w-[150px] flex-col items-center rounded-2xl border border-(--color-border-primary)/70 bg-(--gradient-panel) px-4 py-2 shadow-(--shadow-inset-glow);
+  }
+
+  .ticker-card__label {
+    @apply text-xs sm:text-sm text-(--color-text-secondary);
+  }
+
+  .ticker-card__metrics {
+    @apply flex items-center gap-2 text-sm sm:text-base font-semibold;
+  }
+
+  .ticker-card__growth {
+    @apply text-emerald-300;
+  }
+
+  .ticker-card__comparison {
+    @apply text-[11px] sm:text-xs text-(--color-text-secondary);
+  }
+
+  .chart-card {
+    @apply flex h-[40vh] items-end justify-center gap-3 p-px rounded-2xl border border-(--color-border-primary) bg-(--gradient-panel) shadow-(--shadow-inset-glow);
+    width: 100%;
+    min-width: 720px;
+  }
+
+  .chart-card__track {
+    @apply flex flex-col items-center gap-5;
+  }
+
+  .chart-card__bar {
+    @apply w-[84px] bg-(--color-chart-bar) rounded;
+  }
+
+  .chart-card__label {
+    @apply text-xs text-(--color-text-primary) text-center h-6;
+  }
+
+  .chart-card__value {
+    @apply text-sm text-(--color-text-secondary) mb-2;
+  }
+
+  .panel-card {
+    @apply w-full min-h-[260px] sm:min-h-[270px] rounded-2xl border border-(--color-border-primary)/60 bg-(--gradient-panel);
+  }
+
+  .panel-card--padded {
+    @apply p-4 sm:p-5;
+  }
+
+  .recent-activity__title {
+    @apply text-base sm:text-sm font-semibold text-(--color-text-primary);
+  }
+
+  .activity-row {
+    @apply mt-2 flex min-h-[52px] w-full items-center justify-between rounded-xl border border-(--color-border-primary)/30 bg-(--color-surface-card)/70 px-3 py-2 sm:px-4;
+  }
+
+  .activity-row__left {
+    @apply flex items-center justify-start gap-4;
+  }
+
+  .activity-row__meta {
+    @apply text-[10px] sm:text-xs text-(--color-text-secondary);
+  }
+
+  .activity-row__body {
+    @apply text-xs sm:text-sm text-(--color-text-primary);
+  }
+
+  .activity-row__status {
+    @apply text-xs sm:text-sm text-emerald-300;
+  }
+
+  .global-map__image {
+    @apply w-full h-full object-cover rounded-2xl;
+  }
+
+  .resource-distribution {
+    @apply w-full min-w-[720px] rounded-2xl border border-(--color-border-primary)/60 bg-(--gradient-panel) p-4 sm:p-4 text-(--color-text-primary) shadow-2xl;
+  }
+
+  .resource-distribution__header {
+    @apply flex items-center justify-between;
+  }
+
+  .resource-distribution__title {
+    @apply text-base font-semibold tracking-tight;
+  }
+
+  .resource-distribution__tabs {
+    @apply mb-2 flex rounded-xl border border-white/10 bg-(--color-surface-overlay);
+  }
+
+  .resource-distribution__tab {
+    @apply rounded-xl px-5 text-sm transition-all;
+  }
+
+  .resource-distribution__tab--active {
+    @apply bg-(--color-surface-card) text-white;
+  }
+
+  .resource-distribution__tab--inactive {
+    @apply text-white/60 hover:text-white;
+  }
+
+  .resource-distribution__table-wrap {
+    @apply overflow-hidden rounded-2xl border border-white/5;
+  }
+
+  .resource-distribution__table {
+    @apply w-full border-collapse;
+  }
+
+  .resource-distribution__thead {
+    @apply bg-white/2;
+  }
+
+  .resource-distribution__head-row {
+    @apply border-b border-white/10 text-left text-sm;
+  }
+
+  .resource-distribution__th--service {
+    @apply px-5 text-xs font-medium text-white/60;
+  }
+
+  .resource-distribution__th--total {
+    @apply px-5 py-4 text-xs font-medium text-right text-white/60;
+  }
+
+  .resource-distribution__th--aws {
+    @apply px-5 py-4 text-xs font-medium text-(--color-provider-aws);
+  }
+
+  .resource-distribution__th--azure {
+    @apply px-5 py-4 text-xs font-medium text-(--color-provider-azure);
+  }
+
+  .resource-distribution__th--gcp {
+    @apply px-5 py-4 text-xs font-medium text-(--color-provider-gcp);
+  }
+
+  .resource-distribution__th--oracle {
+    @apply px-5 py-4 text-xs font-medium text-(--color-provider-oracle);
+  }
+
+  .resource-distribution__th--ibm {
+    @apply px-5 py-4 text-xs font-medium text-(--color-provider-ibm);
+  }
+
+  .resource-distribution__row {
+    @apply border-b border-white/5 transition-colors hover:bg-white/3;
+  }
+
+  .resource-distribution__td {
+    @apply px-5;
+  }
+
+  .resource-distribution__td--name {
+    @apply px-5 text-white/80;
+  }
+
+  .resource-distribution__td--total {
+    @apply px-5 text-right text-xs font-medium;
+  }
 
   .benefit-section {
     @apply min-h-dvh overflow-hidden relative;
@@ -94,12 +327,38 @@ body::-webkit-scrollbar {
         @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[9vw] flex justify-center items-center bg-white/10 backdrop-blur-xl rounded-full;
       }
 
-      img:first-of-type {
+      /* Exclude play control — it is also an img:first-of-type under .play-btn */
+      img:first-of-type:not(.vd-pin-play-icon) {
         @apply size-[15vw];
       }
+
+      .video-box {
+        @apply size-full;
+      }
+
+      .vd-pin-play-overlay {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:scale-100 scale-200;
+      }
+
+      .vd-pin-play-icon {
+        @apply size-[3vw] ml-[.5vw];
+      }
+    }
+
+    .benefit-section__container {
+      @apply container mx-auto pt-20;
+    }
+
+    .benefit-section__title-grid {
+      @apply relative z-10 mt-20 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4 xl:gap-8 items-center justify-items-center;
+    }
+
+    .benefit-section__divider {
+      @apply text-orange-500 w-250 -mt-5 animate-pulse;
+    }
+
+    .overlay-box {
+      @apply relative mt-30;
     }
   }
 }
-
-
-
